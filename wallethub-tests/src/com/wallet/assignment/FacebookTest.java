@@ -2,15 +2,14 @@ package com.wallet.assignment;
 
 import java.io.IOException;
 
-import org.openqa.selenium.WebDriver;
 
-public class FacebookTest extends ActionClass {
-	WebDriver driver;
+public class FacebookTest extends FacebookActionClass {
+	
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
 		FacebookTest facebook = new FacebookTest();
-		getUserData();
+		facebook.getFacebookUserData();
 		facebook.initiateChromeDriver();
 		facebook.launchAndLoginFacebook(facebook);
 
@@ -40,6 +39,7 @@ public class FacebookTest extends ActionClass {
 
 		facebook.waitForElementToLoad(facebook.postButton(), 5);
 		facebook.postButton().click();
+		facebook.closeBrowser();
 
 	}
 
